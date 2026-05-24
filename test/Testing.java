@@ -4,6 +4,15 @@ import static org.junit.Assert.*;
 import tumeloquickchat.Part2;
 
 public class Testing {
+      @Test
+    public void shouldNotAcceptMessageOver250Characters() {
+        Part2 msg = new Part2();
+        msg.setMsgText("a".repeat(260));
+        String actual = msg.validateMsgLength();
+        String expected = "Message exceeds 250 characters by [10]; please reduce the size";
+        assertEquals("I expect the message to exceed the 250 character limit", expected, actual);
+    }
+
 
     @Test
     public void shouldAcceptMessageUnder250Characters() {
@@ -14,15 +23,7 @@ public class Testing {
         assertEquals("I expect the message to be within the 250 character limit", expected, actual);
     }
 
-    @Test
-    public void shouldNotAcceptMessageOver250Characters() {
-        Part2 msg = new Part2();
-        msg.setMsgText("a".repeat(260));
-        String actual = msg.validateMsgLength();
-        String expected = "Message exceeds 250 characters by [10]; please reduce the size";
-        assertEquals("I expect the message to exceed the 250 character limit", expected, actual);
-    }
-
+  
     @Test
     public void shouldAcceptValidRecipientCellNumber() {
         Part2 msg = new Part2();
