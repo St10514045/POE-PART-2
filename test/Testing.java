@@ -68,6 +68,14 @@ public class Testing {
         String expected = "Sent";
         assertEquals("I expect the message status to be Sent when send is selected", expected, actual);
     }
+     @Test
+    public void shouldReturnCorrectStatusWhenStoreIsSelected() {
+        Part2 msg = new Part2();
+        msg.setDeliveryStatus("Stored");
+        String actual = msg.getDeliveryStatus();
+        String expected = "Stored";
+        assertEquals("I expect the message status to be Stored when store is selected", expected, actual);
+    }
 
     @Test
     public void shouldReturnCorrectStatusWhenDisregardIsSelected() {
@@ -78,12 +86,5 @@ public class Testing {
         assertEquals("I expect the message status to be Disregarded when disregard is selected", expected, actual);
     }
 
-    @Test
-    public void shouldReturnCorrectStatusWhenStoreIsSelected() {
-        Part2 msg = new Part2();
-        msg.setDeliveryStatus("Stored");
-        String actual = msg.getDeliveryStatus();
-        String expected = "Stored";
-        assertEquals("I expect the message status to be Stored when store is selected", expected, actual);
-    }
+   
 }
