@@ -43,7 +43,7 @@ public class TumeloQuickChat {
             System.out.print("Choose a password: ");
             String newSecret = input.nextLine().trim();
             while (!auth.checkPasswordStrength(newSecret)) {
-                System.out.println("Password must be at least 10 characters and include uppercase, lowercase, a digit, and a special character.");
+                System.out.println("Password must be at least 8 characters and include uppercase, lowercase, a digit, and a special character.");
                 System.out.print("Choose a password: ");
                 newSecret = input.nextLine().trim();
             }
