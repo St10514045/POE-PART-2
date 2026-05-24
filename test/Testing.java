@@ -24,6 +24,15 @@ public class Testing {
     }
 
   
+     @Test
+    public void shouldNotAcceptInvalidRecipientCellNumber() {
+        Part2 msg = new Part2();
+        msg.setCellNumber("08575975889");
+        String actual = msg.validateCellNumber();
+        String expected = "Cell phone number is incorrectly formatted or does not contain an international code. Please correct the number and try again.";
+        assertEquals("I expect the recipient cell number to be incorrectly formatted", expected, actual);
+    }
+
     @Test
     public void shouldAcceptValidRecipientCellNumber() {
         Part2 msg = new Part2();
@@ -33,15 +42,7 @@ public class Testing {
         assertEquals("I expect the recipient cell number to be correctly formatted", expected, actual);
     }
 
-    @Test
-    public void shouldNotAcceptInvalidRecipientCellNumber() {
-        Part2 msg = new Part2();
-        msg.setCellNumber("08575975889");
-        String actual = msg.validateCellNumber();
-        String expected = "Cell phone number is incorrectly formatted or does not contain an international code. Please correct the number and try again.";
-        assertEquals("I expect the recipient cell number to be incorrectly formatted", expected, actual);
-    }
-
+   
     @Test
     public void shouldReturnCorrectMessageHash() {
         Part2 msg = new Part2();
